@@ -2,6 +2,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.alton.dfu">
 
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="no.nordicsemi.android.LOG" />
+
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,13 +22,50 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DfuActivity">
+        <activity android:name=".DfuActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".settings.SettingsActivity"
+            android:label="@string/dfu_settings_title"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+
+        <activity
+            android:name=".NotificationActivity"
+            android:label="@string/dfu_feature_title" />
+
+
+        <service
+            android:name=".DfuService"
+            android:exported="true"
+            android:label="@string/dfu_service_title" >
+            <intent-filter>
+                <action android:name="no.nordicsemi.android.action.DFU_UPLOAD" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".DfuInitiatorActivity"
+            android:label="@string/dfu_service_title"
+            android:noHistory="true"
+            android:theme="@style/AppTheme.Translucent" >
+            <intent-filter>
+                <action android:name="no.nordicsemi.android.action.DFU_UPLOAD" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
+
+
+
 
 </manifest>

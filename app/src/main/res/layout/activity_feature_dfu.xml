@@ -6,7 +6,9 @@
     android:orientation="vertical"
     tools:context=".DfuActivity">
 
-
+    <include
+        android:id="@+id/toolbar_actionbar"
+        layout="@layout/toolbar"/>
 
     <RelativeLayout
 
@@ -41,13 +43,14 @@
 
         <Button
             android:id="@+id/action_connect"
+
             style="@style/Widget.Connect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="@dimen/activity_vertical_margin_bottom"
-
+            android:onClick="onConnectClicked"
             android:text="@string/action_select"/>
 
        <!-- <ImageView
@@ -96,7 +99,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/dfu_file_name_label"/>
+                            android:text="@string/dfu_file_name_label"
+                            android:textColor="@color/black"/>
 
                         <TextView
                             android:id="@+id/file_name"
@@ -104,6 +108,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
                             android:layout_weight="1"
+                            android:textColor="@color/black"
                             android:ellipsize="middle"
                             android:freezesText="true"
                             android:singleLine="true"/>
@@ -116,10 +121,12 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/dfu_file_type_label"/>
+                            android:text="@string/dfu_file_type_label"
+                            android:textColor="@color/black"/>
 
                         <TextView
                             android:id="@+id/file_type"
+                            android:textColor="@color/black"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
@@ -133,6 +140,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/black"
                             android:text="@string/dfu_file_scope_label"/>
 
                         <TextView
@@ -140,6 +148,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
+                            android:textColor="@color/black"
                             android:freezesText="true"/>
                     </TableRow>
 
@@ -150,6 +159,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/black"
                             android:text="@string/dfu_file_size_label"/>
 
                         <TextView
@@ -157,6 +167,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
+                            android:textColor="@color/black"
                             android:freezesText="true"/>
                     </TableRow>
 
@@ -167,6 +178,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/black"
                             android:text="@string/dfu_file_status_label"/>
 
                         <TextView
@@ -175,6 +187,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
                             android:freezesText="true"
+                            android:textColor="@color/black"
                             android:text="@string/dfu_file_status_no_file"/>
                     </TableRow>
                 </TableLayout>
@@ -192,14 +205,14 @@
                         android:id="@+id/action_select_file"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
+                        android:onClick="onSelectFileClicked"
                         android:text="@string/dfu_action_select_file"/>
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-
+                        android:onClick="onSelectFileHelpClicked"
                         android:src="@drawable/ic_help"/>
                 </LinearLayout>
             </LinearLayout>
@@ -229,7 +242,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/feature_section_padding"
                     android:enabled="false"
-
+                    android:onClick="onUploadClicked"
                     android:text="@string/dfu_action_upload"/>
 
                 <TextView
@@ -239,6 +252,7 @@
                     android:layout_margin="@dimen/feature_section_padding"
                     android:freezesText="true"
                     android:text="@string/dfu_status_uploading"
+                    android:textColor="@color/black"
                     android:visibility="invisible"/>
 
                 <ProgressBar
@@ -255,6 +269,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/feature_section_padding"
                     android:freezesText="true"
+                    android:textColor="@color/black"
                     android:text="@string/dfu_uploading_percentage_label"
                     android:visibility="invisible"/>
             </LinearLayout>

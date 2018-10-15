@@ -10,4 +10,5 @@
     <color name="headerBackgroundColorDark">#0081B7</color>
     <color name="headerTextColor">#FFFFFF</color>
     <color name="featureTitleColor">#939597</color>
+    <color name="black">#FF0E0E0E</color>
 </resources>
